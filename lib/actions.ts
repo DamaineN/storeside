@@ -44,9 +44,13 @@ export const getSearchedProducts = async (query: string) => {
 };
 
 export const getOrders = async (customerId: string) => {
-  const orders = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customer/${customerId}`)
-  return await orders.json()
-}
+  const timestamp = new Date().getTime();
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/orders/customer/${customerId}?_=${timestamp}`
+  );
+  const orders = await response.json();
+  return orders;
+};
 
 export const getRelatedProducts = async (productId: string) => {
   const timestamp = new Date().getTime();
