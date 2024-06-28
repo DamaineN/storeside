@@ -91,7 +91,6 @@ const config: Config = {
         "red-1": "#FF0000",
         "grey-1": "#F7F7F7",
         "grey-2": "#8A8A8A",
-        "green-1": "#1cb34c",
       },
     },
   },
