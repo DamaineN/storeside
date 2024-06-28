@@ -44,20 +44,12 @@ export const getSearchedProducts = async (query: string) => {
 };
 
 export const getOrders = async (customerId: string) => {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`);
-    if (!response.ok) {
-      if (response.status === 404) {
-        return { message: 'No orders made' }; // return a specific response for no orders found
-      }
-      throw new Error(`API request failed with status ${response.status}`);
-    }
-    const orders = await response.json();
-    return orders;
-  } catch (error) {
-    console.error(error);
-    return { error: 'Failed to retrieve orders' }; // return an error object
-  }
+  const timestamp = new Date().getTime();
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}?_=${timestamp}`
+  );
+  const orders = await response.json();
+  return orders;
 };
 
 export const getRelatedProducts = async (productId: string) => {
