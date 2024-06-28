@@ -5,6 +5,7 @@ import React from 'react';
 const AboutUs = () => {
   return (
     <div className="h-screen items-center justify-center space-y-7 py-8 px-24">
+      
       <style jsx>{`
         .custom-height {
           height: 300px;
@@ -12,10 +13,12 @@ const AboutUs = () => {
         .half-height {
           height: 150px;
         }
-      `}</style>
+      `}
+      </style>
+
       <div>
         <center>
-          <p className="py-3 text-heading1-bold">
+          <p className="py-3 text-heading1-bold text-green-1">
             Welcome to Medi Grab Solution!
           </p>
         </center>
