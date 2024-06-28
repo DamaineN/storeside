@@ -49,3 +49,4 @@ const Collections = async () => {
 
 export default Collections;
 
+
